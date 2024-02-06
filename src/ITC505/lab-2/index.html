@@ -75,16 +75,6 @@
     <!-- Add more skills as needed -->
   </ul>
 
-  <footer>
-    <p>Last updated: 
-      <span id="lastModified"></span>
-    </p>
-  </footer>
-  <script type="text/javascript">
-    var x = document.lastModified;
-    document.getElementById('lastModified').textContent = x;
-  </script>
-
   <!-- Addendum -->
   <section>
     <h2>Addendum: Structural Choices</h2>
@@ -107,7 +97,17 @@
     <li> "section" Tag: Defines a section in a document.</li>
     <li> "footer" Tag: Contains the footer information, such as copyright, last updated date, etc.</li>
     <li> "script" Tag: Used to embed or reference a script within an HTML document.</li>
-  
   </section>
+
+  <footer>
+    <p>Last updated: 
+      <span id="lastModified"></span>
+    </p>
+  </footer>
+  <script type="text/javascript">
+    var x = document.lastModified;
+    document.getElementById('lastModified').textContent = x;
+  </script>
+  
 </body>
 </html>
