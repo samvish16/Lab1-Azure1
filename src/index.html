@@ -1,12 +1,82 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Homework 1</title>
-    </head>
-    <body>
-        <p>
-            Hi this is Vishakha, I did my homework!
-        </p>
-        <img src="Lab1.jpg">
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+        header, footer, .sidebar, .content, .advertisement {
+            padding: 10px;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        .sidebar {
+            background-color: #f4f4f4;
+        }
+        .content {
+            background-color: #ddd;
+            padding: 20px;
+        }
+        .advertisement {
+            text-align: center;
+        }
+        .task {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .task input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>To-Do List</h1>
+        </header>
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </div>
+        <main class="content">
+            <h2>Add Task</h2>
+            <input type="text" id="taskInput">
+            <button onclick="addTask()">Add Task</button>
+            <h2>Tasks</h2>
+            <div id="taskList"></div>
+        </main>
+        <div class="advertisement">
+            <a href="https://www.amazon.com" target="_blank">
+                <img src="advertisement.jpg" alt="Advertisement">
+            </a>
+        </div>
+        <footer>
+            <p>Addendum: This page contains a simple to-do list. Users can add tasks, mark them as complete, and delete them.</p>
+            <p>Last updated: <span id="lastModified"></span></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
 </html>
