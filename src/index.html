@@ -91,7 +91,7 @@
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.addEventListener("change", function() {
-                var taskTextElement = this.nextElementSibling;
+                var taskTextElement = this.parentElement.querySelector('span');
                 if (this.checked) {
                     taskTextElement.style.textDecoration = "line-through";
                 } else {
@@ -105,7 +105,7 @@
             var deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
             deleteButton.addEventListener("click", function() {
-                var taskItem = this.parentNode;
+                var taskItem = this.parentElement;
                 taskList.removeChild(taskItem);
             });
 
