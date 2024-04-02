@@ -1,4 +1,3 @@
-<!-- Add this script after the previous JavaScript -->
 <script>
     // Function to add a new task
     function addTask() {
@@ -17,6 +16,7 @@
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.addEventListener("change", function() {
+            var taskTextElement = this.nextElementSibling;
             if (this.checked) {
                 taskTextElement.style.textDecoration = "line-through";
             } else {
@@ -30,6 +30,7 @@
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", function() {
+            var taskItem = this.parentNode;
             taskList.removeChild(taskItem);
         });
 
