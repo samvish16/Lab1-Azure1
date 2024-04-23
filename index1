@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Web Form</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-weight: bold;
+    }
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    input[type="submit"] {
+      padding: 10px;
+      background-color: #fff;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var firstName = sanitizeInput(document.getElementById('firstName').value);
+      var lastName = sanitizeInput(document.getElementById('lastName').value);
+      var email = sanitizeInput(document.getElementById('email').value);
+      var password = sanitizeInput(document.getElementById('password').value);
+      var confirmPassword = sanitizeInput(document.getElementById('confirmPassword').value);
+
+      // Check for empty fields
+      if (firstName === '' || lastName === '' || email === '' || password === '' || confirmPassword === '') {
+        alert('All fields are required');
+        return false;
+      }
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return false;
+      }
+
+      // Password match
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return false;
+      }
+
+      // All validations passed
+      return true;
+    }
+
+    function sanitizeInput(input) {
+      // Basic input sanitization to prevent XSS
+      return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="return validateForm()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
