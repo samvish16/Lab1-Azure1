@@ -5,17 +5,17 @@
   <title>Secure Web Form</title>
   <style>
     body {
-      background-color: black;
-      color: white;
+      background-color: blue;
+      color: black;
       font-weight: bold;
     }
     form {
-      width: 300px;
+      width: 250px;
       margin: 0 auto;
     }
     label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
     input[type="text"],
     input[type="email"],
